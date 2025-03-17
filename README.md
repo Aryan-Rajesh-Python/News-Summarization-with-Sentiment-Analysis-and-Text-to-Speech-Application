@@ -11,9 +11,8 @@ This is a **News Summarization and Text-to-Speech Application** that:
 ---
 
 ### **📸 Demo**
-![App Screenshot](https://your-image-link-here.com)  
 
-🔗 **Live Demo**: [Hugging Face Deployment](https://huggingface.co/spaces/your-app-link)  
+🔗 **Live Demo**: [Hugging Face Deployment](https://huggingface.co/spaces/aryan79/News_Summarization_and_Text-to-Speech)  
 
 ---
 
