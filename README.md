@@ -2,7 +2,7 @@
 
 ### **📌 Overview**
 This is a **News Summarization and Text-to-Speech Application** that:
-✅ Uses NewsAPI to fetch the real-time news
+
 ✅ Fetches the latest news articles from NewsAPI  
 ✅ Analyzes the sentiment of news headlines (Positive, Negative, Neutral)  
 ✅ Converts news summaries to **English & Hindi speech** using `gTTS`  
