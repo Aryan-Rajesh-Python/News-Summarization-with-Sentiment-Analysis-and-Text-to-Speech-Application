@@ -3,3 +3,6 @@ requests
 textblob
 gtts
 deep-translator
+transformers
+torch
+sentencepiece
