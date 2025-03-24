@@ -1,6 +1,6 @@
 # 🚀 News Summarization & Sentiment Analysis with Text-to-Speech
 
-This intelligent news processing application fetches real-time news, extracts key insights, analyzes sentiment, identifies core topics, and delivers audio summaries in both **English and Hindi**. Designed for efficiency, it leverages **AI-driven summarization, sentiment detection, and multilingual speech synthesis** to provide a seamless news consumption experience.
+This intelligent news processing application fetches real-time news, extracts key insights, analyzes sentiment, identifies core topics, and delivers audio summaries in **Hindi**. Designed for efficiency, it leverages **AI-driven summarization, sentiment detection, and multilingual speech synthesis** to provide a seamless news consumption experience.
 
 ## ✨ Features
 
@@ -9,7 +9,7 @@ This intelligent news processing application fetches real-time news, extracts ke
 🔹 **Sentiment Analysis** – Classifies news articles as **Positive, Negative, or Neutral** to assess market sentiment.  
 🔹 **Topic Extraction** – Identifies key themes covered in news reports.  
 🔹 **Comparative Analysis** – Highlights key differences and overlaps between articles.  
-🔹 **Multilingual Text-to-Speech (TTS)** – Converts news summaries into **English & Hindi audio** for effortless listening.  
+🔹 **Hindi Text-to-Speech (TTS)** – Converts news summaries into **Hindi audio** for effortless listening.  
 🔹 **Optimized Performance** – Utilizes parallel processing for faster execution and improved efficiency.
 
 ## 🔧 Installation & Setup
@@ -25,10 +25,10 @@ pip install -r requirements.txt
 - `streamlit` – Interactive UI for seamless experience  
 - `requests` – Fetch real-time news from APIs  
 - `textblob` – Sentiment analysis of headlines  
-- `gtts` – Convert text summaries into speech  
+- `gtts` – Convert text summaries into Hindi speech  
 - `deep-translator` – Translate summaries for multilingual TTS  
 - `transformers` – AI-based summarization and text processing  
-- `torch` – Backend for transformer models  
+- `torch` – Backend for transformer models    
 - `scikit-learn` – Data processing and analysis utilities  
 
 ## 🚀 Usage
@@ -41,7 +41,7 @@ streamlit run app.py
 
 1️⃣ **Enter a company name or topic** to fetch related news.  
 2️⃣ **View summarized news** along with sentiment classification.  
-3️⃣ **Listen to news summaries** in both **English & Hindi** with TTS.  
+3️⃣ **Listen to news summaries** in **Hindi** with TTS.  
 4️⃣ **Analyze comparative insights** between different articles.  
 
 ## 🌍 Future Enhancements
@@ -49,4 +49,4 @@ streamlit run app.py
 ✅ Support for additional languages in text-to-speech  
 ✅ Integration with more news sources for broader coverage  
 ✅ Advanced NLP techniques for improved summarization accuracy  
-✅ Interactive sentiment trend visualization over time
+✅ Interactive sentiment trend visualization over time  
