@@ -1,28 +1,52 @@
-# News Summarization with Sentiment Analysis and Text-to-Speech Application
+# 🚀 News Summarization & Sentiment Analysis with Text-to-Speech
 
-This project provides a tool for fetching the latest news, summarizing it, performing sentiment analysis, extracting key topics, comparing different articles, and converting the summary into audio in both English and Hindi using **Python**, **Streamlit**, **TextBlob**, **Google Text-to-Speech (gTTS)**, **Deep Translator**, and **Transformers**.
+This intelligent news processing application fetches real-time news, extracts key insights, analyzes sentiment, identifies core topics, and delivers audio summaries in both **English and Hindi**. Designed for efficiency, it leverages **AI-driven summarization, sentiment detection, and multilingual speech synthesis** to provide a seamless news consumption experience.
 
-## Features
+## ✨ Features
 
-- **News Fetching**: Fetch the latest news articles about a specific company using NewsAPI.
-- **Summarization**: Automatically summarize the fetched articles for quick reading using a Transformer-based model.
-- **Sentiment Analysis**: Analyze the sentiment (Positive, Negative, or Neutral) of the news titles.
-- **Topic Extraction**: Identify key topics covered in each article.
-- **Comparative Analysis**: Compare sentiment distribution and topic coverage across articles.
-- **Text-to-Speech (TTS)**: Convert the summarized text into speech in both **English** and **Hindi** using gTTS.
-- **Optimized Performance**: Improved efficiency by handling TTS, translation, and summarization in an optimized manner.
+🔹 **Real-Time News Fetching** – Get the latest updates on any company or topic using NewsAPI.  
+🔹 **AI-Powered Summarization** – Distills lengthy articles into concise, easy-to-digest summaries.  
+🔹 **Sentiment Analysis** – Classifies news articles as **Positive, Negative, or Neutral** to assess market sentiment.  
+🔹 **Topic Extraction** – Identifies key themes covered in news reports.  
+🔹 **Comparative Analysis** – Highlights key differences and overlaps between articles.  
+🔹 **Multilingual Text-to-Speech (TTS)** – Converts news summaries into **English & Hindi audio** for effortless listening.  
+🔹 **Optimized Performance** – Utilizes parallel processing for faster execution and improved efficiency.
 
-## Requirements
+## 🔧 Installation & Setup
 
-Before running the project, make sure you have the following Python packages installed. You can use the `requirements.txt` file to install them using pip.
+Ensure you have Python installed, then install dependencies using:
 
-```txt
-streamlit
-requests
-textblob
-gtts
-deep-translator
-transformers
-torch
-scikit-learn
+```sh
+pip install -r requirements.txt
 ```
+
+## 📦 Requirements
+
+- `streamlit` – Interactive UI for seamless experience  
+- `requests` – Fetch real-time news from APIs  
+- `textblob` – Sentiment analysis of headlines  
+- `gtts` – Convert text summaries into speech  
+- `deep-translator` – Translate summaries for multilingual TTS  
+- `transformers` – AI-based summarization and text processing  
+- `torch` – Backend for transformer models  
+- `scikit-learn` – Data processing and analysis utilities  
+
+## 🚀 Usage
+
+Run the Streamlit app with:
+
+```sh
+streamlit run app.py
+```
+
+1️⃣ **Enter a company name or topic** to fetch related news.  
+2️⃣ **View summarized news** along with sentiment classification.  
+3️⃣ **Listen to news summaries** in both **English & Hindi** with TTS.  
+4️⃣ **Analyze comparative insights** between different articles.  
+
+## 🌍 Future Enhancements
+
+✅ Support for additional languages in text-to-speech  
+✅ Integration with more news sources for broader coverage  
+✅ Advanced NLP techniques for improved summarization accuracy  
+✅ Interactive sentiment trend visualization over time
