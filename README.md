@@ -24,6 +24,5 @@ gtts
 deep-translator
 transformers
 torch
-sentencepiece
 scikit-learn
 ```
