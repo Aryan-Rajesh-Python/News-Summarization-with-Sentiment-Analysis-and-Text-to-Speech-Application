@@ -32,7 +32,7 @@ def fetch_news(company):
         except:
             summary = "Summary not available."
         
-        sentiment = analyze_sentiment(title)
+        sentiment = analyze_sentiment(title + " " + summary)
         topics = extract_topics(title + " " + summary)
         
         news_list.append({
@@ -54,33 +54,34 @@ def analyze_sentiment(text):
     else:
         return "Neutral"
 
-# Extract Topics (Simple Keyword Extraction)
+# Extract Topics (Improved)
 def extract_topics(text):
-    keywords = text.split()[:5]  # Taking first 5 keywords as topics (Can be improved with NLP models)
-    return list(set(keywords))
+    words = text.split()
+    keywords = list(set(words))[:5]  # Unique first 5 keywords
+    return keywords
 
-# Compare Articles
+# Compare Articles (Full Pairwise Comparison)
 def compare_articles(articles):
     comparisons = []
     sentiments = {"Positive": 0, "Negative": 0, "Neutral": 0}
-    topic_overlap = {"Common Topics": [], "Unique Topics in Article 1": [], "Unique Topics in Article 2": []}
-    
-    if len(articles) < 2:
-        return {}, []
+    all_topics = []
     
     for article in articles:
         sentiments[article["Sentiment"]] += 1
+        all_topics.append(set(article["Topics"]))
     
-    topic_overlap["Common Topics"] = list(set(articles[0]["Topics"]) & set(articles[1]["Topics"]))
-    topic_overlap["Unique Topics in Article 1"] = list(set(articles[0]["Topics"]) - set(articles[1]["Topics"]))
-    topic_overlap["Unique Topics in Article 2"] = list(set(articles[1]["Topics"]) - set(articles[0]["Topics"]))
+    for i in range(len(articles)):
+        for j in range(i + 1, len(articles)):
+            common_topics = list(all_topics[i] & all_topics[j])
+            unique_topics_1 = list(all_topics[i] - all_topics[j])
+            unique_topics_2 = list(all_topics[j] - all_topics[i])
+            
+            comparisons.append({
+                "Comparison": f"Article {i+1} talks about {', '.join(articles[i]['Topics'])}, while Article {j+1} focuses on {', '.join(articles[j]['Topics'])}.",
+                "Impact": "Different focus areas identified in these articles."
+            })
     
-    comparisons.append({
-        "Comparison": f"Article 1 talks about {', '.join(articles[0]['Topics'])}, while Article 2 focuses on {', '.join(articles[1]['Topics'])}.",
-        "Impact": "One article is more market-focused, while the other highlights risks."
-    })
-    
-    return sentiments, comparisons, topic_overlap
+    return sentiments, comparisons
 
 # Text to Speech (Hindi)
 def text_to_speech(text):
@@ -100,7 +101,7 @@ if st.button("Fetch News"):
     if not articles:
         st.error("No news articles found.")
     else:
-        sentiments, comparisons, topic_overlap = compare_articles(articles)
+        sentiments, comparisons = compare_articles(articles)
         final_sentiment = "Mostly Positive" if sentiments["Positive"] > sentiments["Negative"] else "Mixed" if sentiments["Positive"] == sentiments["Negative"] else "Mostly Negative"
         full_text = " ".join([f"{art['Title']}: {art['Summary']}" for art in articles])
         hindi_audio = text_to_speech(full_text)
@@ -110,8 +111,7 @@ if st.button("Fetch News"):
             "Articles": articles,
             "Comparative Sentiment Score": {
                 "Sentiment Distribution": sentiments,
-                "Coverage Differences": comparisons,
-                "Topic Overlap": topic_overlap
+                "Coverage Differences": comparisons
             },
             "Final Sentiment Analysis": f"{company}’s latest news coverage is {final_sentiment}.",
             "Audio": "[Play Hindi Speech]"
